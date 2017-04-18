@@ -1,6 +1,4 @@
-<section class="navbar">
-  <!-- the ngRepeat directive  -->
-  <div ng-repeat="room in home.rooms">
-    {{room.$value}}
-  </div>
-</section>
+<!-- the ngRepeat directive  -->
+<div class="chatroom-list" ng-repeat="room in home.rooms">
+  {{ room.name }}
+</div>

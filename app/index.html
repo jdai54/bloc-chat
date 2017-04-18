@@ -2,10 +2,19 @@
 <html ng-app="blocChat">
 <head lang="en">
   <meta charset="UTF-8">
-  <title>Bloc Base Project</title>
+  <title>Bloc Chat</title>
   <link rel="stylesheet" href="/styles/main.css">
 </head>
 <body>
+  <nav class="navbar"> <!-- navigation bar -->
+    <a ui-sref="home" class="logo">
+      <img src="assets/images/bloc_chat_logo.jpg" alt="bloc chat logo" class="logo">
+    </a>
+    <div class="links-container">
+      <a ui-sref="collection" class="navbar-link"></a>
+    </div>      
+  </nav>
+  <ui-view></ui-view>
   <!-- Angular -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
   <!-- AngularFire -->
@@ -26,5 +35,7 @@
     firebase.initializeApp(config);
   </script>
   <script src="/scripts/app.js"></script>
+  <script src="/scripts/services/room.js"></script>
+  <script src="/scripts/controllers/HomeCtrl.js"></script>
 </body>
 </html>

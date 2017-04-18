@@ -12,10 +12,10 @@
       });
     // stateProvider, a component of UI-Router, will determine a number of properties for a state. For Bloc Jams, we need to configure at least four aspects of state: its name, URL route, controller, and template. stateProvider calls .state() which takes two arguments: stateName and stateConfig
     $stateProvider
-      .state('landing', {
+      .state('home', {
         url: '/',
-        controller: 'LandingCtrl as landing',
-        templateUrl: '/templates/landing.html'
+        controller: 'HomeCtrl as home',
+        templateUrl: '/templates/home.html'
       });
     
   }

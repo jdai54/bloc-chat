@@ -4,7 +4,9 @@
     // assign the array of objects retrieved by the all method to a $scope variable using this.rooms //
     this.rooms = Room.all;
     
-    this.createRoom = Room.addRoom();
+    this.addRoom = function(name) {
+      Room.addRoom(name);
+    }
   }
   
   angular

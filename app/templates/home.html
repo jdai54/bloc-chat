@@ -3,7 +3,7 @@
   <button class="create-btn" ng-click="showme=true" ng-hide="showme">Create Chat Room</button>
   <form ng-submit="addText(form)" ng-show="showme">Enter a Room Name:
     <input type="text" placeholder="Enter name here" required>
-    <button type="submit" class="create-btn" ng-click="showme=false; create-room(room)">Create</button>
+    <button type="submit" class="create-btn" ng-click="showme=false; home.add-room(name)">Create</button>
     <button class="cancel-btn" ng-click="showme=false">Cancel</button>
   </form>  
   <div class="chatroom-list" ng-repeat="room in home.rooms">

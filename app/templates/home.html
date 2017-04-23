@@ -1,9 +1,9 @@
 <!-- the ngRepeat directive instantiates a template once per item from a collection. Each template instance gets its own scope, where the given loop variable is set to the current collection item, and $index is set to the item index or key -->
 <div class="menu">
   <button class="create-btn" ng-click="showme=true" ng-hide="showme">Create Chat Room</button>
-  <form ng-submit="addText(form)" ng-show="showme">Enter a Room Name:
-    <input type="text" placeholder="Enter name here" required>
-    <button type="submit" class="create-btn" ng-click="showme=false; home.add-room(name)">Create</button>
+  <form ng-show="showme">Enter a Room Name:
+    <input type="text" placeholder="Enter name here" ng-model="roomName">
+    <button type="submit" class="create-btn" ng-click="showme=false; home.createRoom(roomName)">Create</button>
     <button class="cancel-btn" ng-click="showme=false">Cancel</button>
   </form>  
   <div class="chatroom-list" ng-repeat="room in home.rooms">

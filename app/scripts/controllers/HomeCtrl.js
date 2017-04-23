@@ -3,9 +3,8 @@
   function HomeCtrl(Room) {
     // assign the array of objects retrieved by the all method to a $scope variable using this.rooms //
     this.rooms = Room.all;
-    
-    this.addRoom = function(name) {
-      Room.addRoom(name);
+    this.createRoom = function(roomName) {
+      Room.addRoom(roomName);
     }
   }
   

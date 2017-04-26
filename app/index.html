@@ -4,14 +4,28 @@
   <meta charset="UTF-8">
   <title>Bloc Chat</title>
   <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" type="text/css" href="styles/home.css">
 </head>
 <body>
-  <div class="navbar"> <!-- navigation bar -->
-    <a ui-sref="home" class="logo">
-      <img src="assets/images/bloc_chat_logo.jpg" alt="bloc chat logo" class="logo">
-    </a>
-  </div>
   <ui-view></ui-view>
+  <div id="mySidenav" class="sidenav">   
+  </div>
+  
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+
+  <script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+ 
+  document.getElementById("chat").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+
+  document.getElementById("chat").style.marginLeft = "0";
+}
+</script>
   <!-- Angular -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
   <!-- AngularFire -->

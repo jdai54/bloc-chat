@@ -21,7 +21,9 @@
   <section>
     <div class="chat-format">
       <h2>{{ home.activeRoom.name }}</h2>
-      <div class="messages" ng-repeat="message in home.messages"></div>
+      <div class="messages" ng-repeat="message in home.messages">
+      {{ message.content }}
+      </div>
     </div>
   </section>
 </main>

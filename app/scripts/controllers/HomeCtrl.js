@@ -4,6 +4,7 @@
     // assign the array of objects retrieved by the all method to a $scope variable using this.rooms //
     this.showme = false;
     this.rooms = Room.all;
+    this.messages = Message.getByRoomId;
     this.createRoom = function(roomName) {
       Room.addRoom(roomName);
       this.showme = false;

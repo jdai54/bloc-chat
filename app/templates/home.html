@@ -1,12 +1,31 @@
 <!-- the ngRepeat directive instantiates a template once per item from a collection. Each template instance gets its own scope, where the given loop variable is set to the current collection item, and $index is set to the item index or key -->
+<div id="mySidenav" class="sidenav">
 <div class="menu">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a ui-sref="home" class="logo">
+    <img src="assets/images/chat_logo.jpg" alt="bloc chat logo" class="logo">
+  </a>
+  <h2>Bloc Chat</h2>
   <button class="create-btn" ng-click="home.showme=true" ng-hide="home.showme">Create Chat Room</button>
   <form ng-show="home.showme">Enter a Room Name:
     <input type="text" placeholder="Enter name here" ng-model="roomName">
-    <input type="submit" ng-click="home.showme=false; home.createRoom(roomName)" value="Create"></button>
-    <button class="cancel-btn" ng-click="home.showme=false">Cancel</button>
+    <input type="submit" ng-click="home.showme; home.createRoom(roomName)" value="Create"></button>
+    <button class="cancel-btn" ng-click="home.showme">Cancel</button>
   </form>  
   <div class="chatroom-list" ng-repeat="room in home.rooms">
-    {{ room.name }}  
+    <a ng-click="home.select(room)">{{ room.name }}</a>
   </div>
 </div>
+</div>
+<main id="chat">
+  <section>
+    <div class="chat-format">
+      <h2>{{ home.activeRoom.name }}</h2>
+      <div class="messages" ng-repeat="message in home.messages">
+      {{ message.content }}
+      </div>
+    </div>
+  </section>
+</main>
+
+

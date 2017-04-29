@@ -48,6 +48,14 @@ html {
   margin-left: 50px;
 }
 
+a:hover {
+   cursor: pointer;
+ }
+
+button:hover {
+   cursor: pointer;
+ }
+
 #main {
   transition: margin-left .5s;
   padding: 16px;

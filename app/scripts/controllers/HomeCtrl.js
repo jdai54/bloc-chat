@@ -22,5 +22,5 @@
   angular
     .module('blocChat')
     //The last item in the array must be the callback function that executes when the controller is initialized – in this case, HomeCtrl //
-    .controller('HomeCtrl', ['Room', 'Message', '$uibModal', HomeCtrl]);
+    .controller('HomeCtrl', ['Room', 'Message', HomeCtrl]);
 })();

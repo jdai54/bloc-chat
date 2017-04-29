@@ -1,7 +1,7 @@
 <!-- the ngRepeat directive instantiates a template once per item from a collection. Each template instance gets its own scope, where the given loop variable is set to the current collection item, and $index is set to the item index or key -->
  
 <div id="mySidenav" class="sidenav">
-  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+  
 <div class="menu">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a ui-sref="home" class="logo">
@@ -20,6 +20,7 @@
 </div>
 </div>
 <main id="chat">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
   <section>
     <div class="chat-format">
       <h2>{{ home.activeRoom.name }}</h2>

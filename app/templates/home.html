@@ -21,13 +21,25 @@
 </div>
 <main id="chat">
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-  <section>
+  <section class="chat-main">
     <div class="chat-format">
       <h2>{{ home.activeRoom.name }}</h2>
       <div class="messages" ng-repeat="message in home.messages">
-      {{ message.content }}
+        {{ message.username }}
+      </div>
+      <div class="messages" ng-repeat="message in home.messages">
+        {{ message.content }}
+      </div>
+      <div class="messages" ng-repeat="message in home.messages">
+        {{ message.sentAt }}
       </div>
     </div>
+  </section>
+  <section class="message-form">
+    <form>
+    <input type="text" placeholder="Write your message here..." ng-model="newMessage">
+    <input type="submit" ng-click="home.sendMessage(newMessage)" value="Send">
+  </form>  
   </section>
 </main>
 

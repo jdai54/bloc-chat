@@ -7,10 +7,14 @@
     this.messages = Message.getByRoomId;
     this.currentUser = $cookies.get('blocChatCurrentUser');
     this.activeRoom = null;
+    this.newMessage = {};
+    
     this.createRoom = function(roomName) {
       Room.addRoom(roomName);
       this.showme = false;
+      this.roomName = '';
     }
+    
     this.select = function(room) {
       this.activeRoom = room;
       //console.log(this.activeRoom);
@@ -18,11 +22,14 @@
       this.messages = Message.getByRoomId(room.$id);
       console.log(this.messages);
     }
-    this.sendMessage = function(newMessage) {
+    
+    this.sendMessage = function() {
       this.newMessage.roomId = this.activeRoom.$id;
-      newMessage.username = this.currentUser;
-      console.log(newMessage.username);
-      Message.send(newMessage);
+      this.newMessage.username = this.currentUser;
+      this.newMessage.content = this.messageText;
+      this.newMessage.sentAt = firebase.database.ServerValue.TIMESTAMP;
+      Message.send(this.newMessage);
+      this.messageText = '';
     }
 
   }

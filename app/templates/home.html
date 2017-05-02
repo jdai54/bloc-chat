@@ -7,11 +7,11 @@
   <a ui-sref="home" class="logo">
     <img src="assets/images/chat_logo.jpg" alt="bloc chat logo" class="logo">
   </a>
-  <h2>Bloc Chat</h2>
+  <h2 class="menu-title">Bloc Chat</h2>
   <button class="create-btn" ng-click="home.showme=true" ng-hide="home.showme">Create Chat Room</button>
   <form ng-show="home.showme">Enter a Room Name:
-    <input type="text" placeholder="Enter name here" ng-model="roomName">
-    <input type="submit" ng-click="home.showme; home.createRoom(roomName)" value="Create">
+    <input type="text" placeholder="Enter name here" ng-model="home.roomName">
+    <input type="submit" ng-click="home.showme; home.createRoom(home.roomName)" value="Create">
     <button class="cancel-btn" ng-click="home.showme">Cancel</button>
   </form>  
   <div class="chatroom-list" ng-repeat="room in home.rooms">
@@ -37,8 +37,8 @@
   </section>
   <section class="message-form">
     <form>
-    <input type="text" placeholder="Write your message here..." ng-model="newMessage">
-    <input type="submit" ng-click="home.sendMessage(newMessage)" value="Send">
+    <input type="text" placeholder="Write your message here..." ng-model="home.messageText">
+    <input type="submit" ng-click="home.sendMessage()" value="Send">
   </form>  
   </section>
 </main>

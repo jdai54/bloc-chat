@@ -1,7 +1,7 @@
-// Inject the Room service by passing it as the paramenter and as a dependency //
+// Inject the Room service by passing it as the paramenter and as a dependency
 (function() {
   function HomeCtrl(Room, Message, $cookies) {
-    // assign the array of objects retrieved by the all method to a $scope variable using this.rooms //
+    /* assign the array of objects retrieved by the all method to a $scope variable using this.rooms */
     this.showme = false;
     this.rooms = Room.all;
     this.messages = Message.getByRoomId;
@@ -29,6 +29,7 @@
       this.newMessage.content = this.messageText;
       this.newMessage.sentAt = firebase.database.ServerValue.TIMESTAMP;
       Message.send(this.newMessage);
+      // resets the message text box
       this.messageText = '';
     }
 
@@ -36,6 +37,6 @@
   
   angular
     .module('blocChat')
-    //The last item in the array must be the callback function that executes when the controller is initialized – in this case, HomeCtrl //
+    /* The last item in the array must be the callback function that executes when the controller is initialized – in this case, HomeCtrl */
     .controller('HomeCtrl', ['Room', 'Message', '$cookies', HomeCtrl]);
 })();

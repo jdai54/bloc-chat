@@ -5,14 +5,14 @@
 <div class="menu">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a ui-sref="home" class="logo">
-    <img src="assets/images/chat_logo.jpg" alt="bloc chat logo" class="logo">
+    <img src="assets/images/chat_logo.jpg" alt="real talk logo" class="logo">
   </a>
-  <h2 class="menu-title">Bloc Chat</h2>
+  <h2 class="menu-title">Real Talk</h2>
   <button class="create-btn" ng-click="home.showme=true" ng-hide="home.showme">Create Chat Room</button>
   <form ng-show="home.showme">Enter a Room Name:
     <input type="text" placeholder="Enter name here" ng-model="home.roomName">
     <input type="submit" ng-click="home.showme; home.createRoom(home.roomName)" value="Create">
-    <button class="cancel-btn" ng-click="home.showme">Cancel</button>
+    <button class="cancel-btn" ng-click="home.showme=false">Cancel</button>
   </form>  
   <div class="chatroom-list" ng-repeat="room in home.rooms">
     <a ng-click="home.select(room)">{{ room.name }}</a>
@@ -22,21 +22,25 @@
 <main id="chat">
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
   <section class="chat-main">
-    <div class="chat-format">
+    <div class="chatroom-heading">
       <h2>{{ home.activeRoom.name }}</h2>
-      <div class="messages" ng-repeat="message in home.messages">
+    </div>
+    <div class="chatroom-body" ng-repeat="message in home.messages">
+      <div class="username">
         {{ message.username }}
       </div>
-      <div class="messages" ng-repeat="message in home.messages">
-        {{ message.content }}
+      <!-- formats the timestamp -->
+      <div class="timestamp">
+        {{ message.sentAt | date : "shortTime" }}
       </div>
-      <div class="messages" ng-repeat="message in home.messages">
-        {{ message.sentAt }}
+      <div class="content">
+        {{ message.content }}
       </div>
     </div>
   </section>
   <section class="message-form">
     <form>
+    <!-- Because in the model we call HomeCtrl by binding the data to home.messageText instead of just messageText, messageText is now available in the controller so it no longer needs to be passed in the ng-click method -->
     <input type="text" placeholder="Write your message here..." ng-model="home.messageText">
     <input type="submit" ng-click="home.sendMessage()" value="Send">
   </form>  
